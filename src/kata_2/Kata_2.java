@@ -1,6 +1,7 @@
 package kata_2;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 
@@ -11,12 +12,15 @@ public class Kata_2 {
      */
 
     public static void main(String[] args) {
-        Integer[] data = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14};
+        String[] data = {"Rosa","Pepe","Maria","Pepe", "Pepe","Rosa"};
  
         Histogram histo = new Histogram(data);
-        Map <Integer, Integer> histogr = histo.getHistogram();
-        for (Map.Entry<Integer, Integer> entry : histogr.entrySet()) {
-            System.out.println(entry.getKey() + "-->" + entry.getValue());
+        Map histogr = histo.getHistogram();
+        
+        Iterator<Map.Entry<String, Integer>> entries1 = histogr.entrySet().iterator();
+        while (entries1.hasNext()) {
+            Map.Entry<String, Integer> entry = entries1.next();
+            System.out.println("M3a: Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
     }
 
